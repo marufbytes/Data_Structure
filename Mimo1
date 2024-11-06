@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int k, i, n = 5, mimo[10] = {2, 3, 5, 6, 7}; 
+
+    // Insert value 8 at the end of the array and increase n
+    mimo[n++] = 8;
+
+    // Insert value 1 at the beginning of the array
+    for (i = n; i > 0; i--) {
+        mimo[i] = mimo[i - 1]; // Shift all elements one position to the right
+    }
+    mimo[0] = 1; // Insert 1 at the beginning
+    n++;         // Increase n after insertion
+
+    // Insert value 4 in the middle (at index k = 3)
+    k = 3;
+    for (i = n; i > k; i--) {
+        mimo[i] = mimo[i - 1]; // Shift elements to the right starting from index k
+    }
+    mimo[k] = 4; // Insert 4 at index k
+    n++;         // Increase n after insertion
+
+    // Print all elements of the mimo array
+    for (i = 0; i < n; i++) {
+        cout << mimo[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
